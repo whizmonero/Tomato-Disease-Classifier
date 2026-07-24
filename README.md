@@ -1,39 +1,15 @@
-# Tomato Disease Classifier
+# 🍅 Tomato Disease Classifier
 
 ## Overview
 
-This project is a deep learning application developed to classify tomato leaf images as either **Healthy** or **Tomato Early Blight** using Transfer Learning with MobileNetV2.
+This project is a deep learning application developed for detecting tomato leaf diseases using Transfer Learning with MobileNetV2.
 
-The project was implemented using TensorFlow/Keras and deployed using Streamlit.
+The model classifies tomato leaf images into two categories:
 
----
+- Tomato Healthy
+- Tomato Early Blight
 
-## Project Structure
-
-```
-Tomato-Disease-Classifier/
-│
-├── app.py
-├── requirements.txt
-├── README.md
-├── .gitignore
-│
-├── dataset/
-│   ├── train/
-│   ├── validation/
-│   └── test/
-│
-├── models/
-│   ├── tomato_disease_classifier.keras
-│   └── training_history.csv
-│
-├── Notebook/
-│   ├── 01_data_preparation.ipynb
-│   ├── 02_train_model.ipynb
-│   └── 03_model_evaluation.ipynb
-│
-└── venv/
-```
+The web application is built using Streamlit and TensorFlow.
 
 ---
 
@@ -54,19 +30,31 @@ Classes:
 - TensorFlow/Keras
 - Image Size: 224 × 224
 - Optimizer: Adam
-- Loss Function: SparseCategoricalCrossentropy
+- Loss Function: Sparse Categorical Crossentropy
 
 ---
 
-## Features
+## Project Structure
 
-- Image Classification
-- Healthy vs Early Blight Detection
-- Streamlit Web Application
-- Prediction Confidence
-- Training History Visualization
-- Confusion Matrix
-- Classification Report
+```
+Tomato-Disease-Classifier/
+│
+├── app.py
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── models/
+│   ├── tomato_disease_classifier.keras
+│   └── training_history.csv
+│
+├── Notebook/
+│   ├── 01_data_preparation.ipynb
+│   ├── 02_train_model.ipynb
+│   └── 03_model_evaluation.ipynb
+│
+└── dataset/
+```
 
 ---
 
@@ -75,10 +63,10 @@ Classes:
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Tomato-Disease-Classifier.git
+git clone https://github.com/whizmonero/Tomato-Disease-Classifier.git
 ```
 
-Navigate into the project
+Move into the project folder
 
 ```bash
 cd Tomato-Disease-Classifier
@@ -90,7 +78,7 @@ Create a virtual environment
 python -m venv venv
 ```
 
-Activate the environment
+Activate the virtual environment
 
 Windows
 
@@ -104,9 +92,7 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
----
-
-## Run the Application
+Run the Streamlit application
 
 ```bash
 streamlit run app.py
@@ -121,17 +107,25 @@ streamlit run app.py
 - Keras
 - Streamlit
 - NumPy
-- Pandas
-- Matplotlib
-- Scikit-learn
-- OpenCV
+- Pillow
+
+---
+
+## Features
+
+- Tomato Disease Classification
+- Healthy vs Early Blight Detection
+- Confidence Score
+- Image Upload
+- MobileNetV2 Transfer Learning
+- Streamlit Web Interface
 
 ---
 
 ## Author
 
-John Monday
+John Nkpoikanke Mondday 
 
 Department of Electrical  Engineering
 
-GET 324 – Deep Learning Project
+GET 324 – Deep Learning Project Group EE17
