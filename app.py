@@ -39,22 +39,31 @@ CLASS_NAMES = [
 def load_model():
     return tf.keras.models.load_model(MODEL_PATH)
 
-model = load_model()
+try:
+    model = load_model()
+except Exception as e:
+    st.error(f"Unable to load model.\n\n{e}")
+    st.stop()
 
 # ==========================================================
 # IMAGE PREPROCESSING
 # ==========================================================
 
-def preprocess_image(image):
-    image = image.convert("RGB")
-    image = image.resize((224, 224))
+def preprocess_image(img):
 
-    image = np.array(image).astype(np.float32)
-    image = image / 255.0
+    img = img.convert("RGB")
+    img = img.resize((224, 224))
 
-    image = np.expand_dims(image, axis=0)
+    img = np.array(img, dtype=np.float32)
 
-    return image
+    # IMPORTANT:
+    # Do NOT divide by 255 here because the trained model
+    # already contains a Rescaling(1./255) layer.
+
+    img = np.expand_dims(img, axis=0)
+
+    return img
+
 
 # ==========================================================
 # USER INTERFACE
@@ -62,37 +71,62 @@ def preprocess_image(image):
 
 st.title("🍅 Tomato Disease Classifier")
 
-st.write("""
-Upload a tomato leaf image to determine whether it is:
+st.write(
+    """
+Upload a **tomato leaf image** to classify it as:
 
 - Healthy Tomato Leaf
 - Tomato Early Blight
-""")
+"""
+)
 
 uploaded_file = st.file_uploader(
-    "Choose an image...",
+    "Choose an image",
     type=["jpg", "jpeg", "png"]
 )
 
 if uploaded_file is not None:
 
-    image = Image.open(uploaded_file)
+    try:
+        image = Image.open(uploaded_file)
 
-    st.image(
-        image,
-        caption="Uploaded Image",
-        use_container_width=True
-    )
+        st.image(
+            image,
+            caption="Uploaded Image",
+            use_container_width=True
+        )
+
+    except Exception:
+        st.error("Unable to read the uploaded image.")
+        st.stop()
 
     if st.button("Predict"):
 
         processed_image = preprocess_image(image)
 
-        prediction = model.predict(processed_image, verbose=0)
+        prediction = model.predict(
+            processed_image,
+            verbose=0
+        )
+
+        prediction = prediction[0]
 
         predicted_index = np.argmax(prediction)
 
-        confidence = float(np.max(prediction))
+        confidence = float(prediction[predicted_index])
+
+        # Reject uncertain predictions
+        if confidence < 0.75:
+
+            st.warning(
+                """
+This image does not closely match the training data.
+
+Please upload a clear tomato leaf image.
+"""
+            )
+
+            st.stop()
 
         predicted_class = CLASS_NAMES[predicted_index]
 
@@ -101,23 +135,28 @@ if uploaded_file is not None:
         st.subheader("Prediction Result")
 
         if predicted_class == "Tomato_healthy":
-            st.success("Healthy Tomato Leaf")
+
+            st.success("✅ Healthy Tomato Leaf")
+
         else:
-            st.error("Tomato Early Blight Detected")
+
+            st.error("🍂 Tomato Early Blight Detected")
 
         st.metric(
-            label="Confidence",
-            value=f"{confidence:.2%}"
+            "Confidence",
+            f"{confidence:.2%}"
         )
 
         st.subheader("Prediction Probabilities")
 
-        for label, probability in zip(CLASS_NAMES, prediction[0]):
-            st.write(f"**{label}** : {probability:.2%}")
+        for class_name, probability in zip(CLASS_NAMES, prediction):
+
+            st.write(f"**{class_name}** : {probability:.2%}")
+
             st.progress(float(probability))
 
 st.divider()
 
 st.caption(
-    "GET 324 • Deep Learning for Tomato Disease Detection Group EE17"
+    "GET 324 • Deep Learning for Tomato Disease Detection • Group EE17"
 )
