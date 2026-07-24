@@ -84,21 +84,37 @@ if uploaded_file is not None:
         use_container_width=True
     )
 
-    if st.button("Predict"):
+    if st.button("Predict"):processed_image = preprocess_image(image)
 
-        processed_image = preprocess_image(image)
+    prediction = model.predict(processed_image, verbose=0)
 
-        prediction = model.predict(processed_image, verbose=0)
+    predicted_index = np.argmax(prediction)
 
-        predicted_index = np.argmax(prediction)
+    confidence = float(np.max(prediction))
 
-        confidence = float(np.max(prediction))
+    predicted_class = CLASS_NAMES[predicted_index]
 
-        predicted_class = CLASS_NAMES[predicted_index]
+    # Minimum confidence required
+    CONFIDENCE_THRESHOLD = 0.85
 
-        st.divider()
+    st.divider()
+    st.subheader("Prediction Result")
 
-        st.subheader("Prediction Result")
+    if confidence < CONFIDENCE_THRESHOLD:
+        st.warning(
+            "⚠️ The uploaded image is not a tomato leaf or the model is not confident enough to make a reliable prediction."
+        )
+
+        st.metric(
+            label="Confidence",
+            value=f"{confidence:.2%}"
+        )
+
+        st.info(
+            "Please upload a clear image of a tomato leaf (Healthy or Early Blight)."
+        )
+
+    else:
 
         if predicted_class == "Tomato_healthy":
             st.success("Healthy Tomato Leaf")
