@@ -128,16 +128,16 @@ John Nkpoikanke Monday
 
 ## Collaborators
 
-Effiong, Elisha Emmanuel
-Obot, Mmokutmfon Daniel
-Abiodun, Godswill Alexander
-Udo Aniekpeno Nkereuwem
-Jackson Hannah Udoh 
-Emmanuel Donald Uwem
-Wobo, Prosper Nyeyiruchi
-John, Wisdom Akan 
-Archibong, Oyokunyi Uwe
-Praise Nkereuwem Esikhene
+Effiong Elisha Emmanuel;
+Obot Mmokutmfon Daniel;
+Abiodun Godswill Alexander;
+Udo Aniekpeno Nkereuwem;
+Jackson Hannah Udoh;
+Emmanuel Donald Uwem;
+Wobo, Prosper Nyeyiruchi;
+John, Wisdom Akan; 
+Archibong, Oyokunyi Uwe;
+Praise Nkereuwem Esikhene;
 
 Department of Electrical  Engineering
 
