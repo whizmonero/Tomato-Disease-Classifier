@@ -13,4 +13,4 @@ Emmanuel Donald Uwem	23/EG/EE/008	DrDonney
 Wobo, Prosper Nyeyiruchi	22/EG/EE/1978	Pan-da10
 John, Wisdom Akan 	22/EG/EE/2098	Don-Wizzy-088
 Archibong, Oyokunyi Uwe	22/EG/EE/1988	Sammye53
-
+Gideon Akuche ifeanyichukwu 23/EG/EE/098  bigdheon

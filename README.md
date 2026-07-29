@@ -138,6 +138,7 @@ Wobo, Prosper Nyeyiruchi;
 John, Wisdom Akan; 
 Archibong, Oyokunyi Uwe;
 Praise Nkereuwem Esikhene;
+Gideon Akuche ifeanyichukwu 
 
 Department of Electrical  Engineering
 
