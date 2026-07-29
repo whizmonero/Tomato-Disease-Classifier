@@ -8,6 +8,7 @@ Effiong, Elisha Emmanuel	22/EG/EE/2008	ellisselma
 Obot, Mmokutmfon Daniel	22/EG/EE/2018	mmokutmfonobot
 Abiodun, Godswill Alexander	22/EG/EE/2068	godswillalexander
 Udo Aniekpeno Nkereuwem	22/EG/EE/1968	anexnk
+Edward John David	22/EG/EE/2108	Blaqteddy05-svg
 Jackson Hannah Udoh 	22/EG/EE/2078  	darannah
 Emmanuel Donald Uwem	23/EG/EE/008	DrDonney
 Wobo, Prosper Nyeyiruchi	22/EG/EE/1978	Pan-da10

@@ -132,6 +132,7 @@ Effiong Elisha Emmanuel;
 Obot Mmokutmfon Daniel;
 Abiodun Godswill Alexander;
 Udo Aniekpeno Nkereuwem;
+Edward John David;
 Jackson Hannah Udoh;
 Emmanuel Donald Uwem;
 Wobo, Prosper Nyeyiruchi;
